@@ -35,7 +35,7 @@ const inputSearchHandler = (e) => {
     if (searchString.length < 4 || searchString === searchLast) return;
     if (!triggerMode) clearMoviesMarkup();
 
-    getData(`http://www.omdbapi.com/?apikey=18b8609f&s=${searchString}`)
+    getData(`https://www.omdbapi.com/?apikey=18b8609f&s=${searchString}`)
       .then((data) => data.forEach((movie) => addMovieToList(movie)))
       .catch((err) => console.log(err));
 
