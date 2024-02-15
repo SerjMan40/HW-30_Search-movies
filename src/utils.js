@@ -8,16 +8,18 @@ export const headStyle = `
   body {
     text-align: center;
     margin-bottom: 30px;  
-    font-family: Arial, Helvetica, sans-serif;
-    
+    font-family: Arial, Helvetica, sans-serif;   
   }
   .container {
-    width: min(100% - 40px, 1280px);
-    margin-inline: auto;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px; 
+    box-sizing: border-box;
   }
   .movies {
     display: grid;
-    grid-template-columns: repeat(3, 32.3%);
+    grid-template-columns: repeat(3, calc((100% - 40px) / 3));
     gap: 20px;
     margin-bottom: 50px;
   }
