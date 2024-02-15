@@ -4,6 +4,7 @@ let moviesList = null;
 export let inputSearch = null;
 export let triggerMode = false;
 
+// DOM-элемент с заданными атрибутами
 const createElement = ({
   tag = 'div',
   attrs = {},
@@ -12,8 +13,9 @@ const createElement = ({
   event = null,
   handler = null,
 }) => {
-  const el = document.createElement(tag);
+  const el = document.createElement(tag); // Создание DOM-элемента с указанным тегом.
 
+  // Установка атрибутов элемента.
   Object.entries(attrs).forEach(([key, value]) => {
     if (key === 'innerHTML') {
       el.innerHTML = value;
@@ -22,13 +24,15 @@ const createElement = ({
     }
   });
 
+  // Добавление элемента в указанный контейнер.
   if (container && position === 'prepend') {
-    container.prepend(el);
+    container.prepend(el); // В начало контейнера.
   }
   if (container && position === 'append') {
-    container.append(el);
+    container.append(el); // В конец контейнера.
   }
 
+  // Добавление события, если указаны тип события и функция-обработчик.
   if (event && handler && typeof handler === 'function') {
     el.addEventListener(event, handler);
   }
@@ -36,6 +40,7 @@ const createElement = ({
   return el;
 };
 
+// Функция для создания стилей из переменной headStyle
 const createStyle = () => {
   createElement({
     tag: 'style',
@@ -44,6 +49,7 @@ const createStyle = () => {
   });
 };
 
+// Функция для создания разметки приложения
 const createMarkup = () => {
   const container = createElement({
     attrs: { class: 'container' },
@@ -51,22 +57,26 @@ const createMarkup = () => {
     position: 'prepend',
   });
 
+  // Создание заголовка <h1> и добавление в контейнер
   createElement({
     tag: 'h1',
     attrs: { innerHTML: 'Застосунок пошуку фільмів' },
     container,
   });
 
+  // Поиск фильмов
   const searchBox = createElement({
     attrs: { class: 'search' },
     container,
   });
 
+  // Поле ввода поиска
   const intputBox = createElement({
     attrs: { class: 'search__group search__group--input' },
     container: searchBox,
   });
 
+  // Метка для поля ввода
   createElement({
     tag: 'label',
     attrs: {
@@ -76,7 +86,7 @@ const createMarkup = () => {
     },
     container: intputBox,
   });
-
+  // Поле ввода поиска фильмов
   inputSearch = createElement({
     tag: 'input',
     attrs: {
@@ -103,7 +113,7 @@ const createMarkup = () => {
     container: checkBox,
     event: 'click',
     handler: () => {
-      triggerMode = !triggerMode;
+      triggerMode = !triggerMode; // Изменение режима поиска
     },
   });
 
@@ -123,6 +133,7 @@ const createMarkup = () => {
   });
 };
 
+// Функция для добавления фильма в список
 export const addMovieToList = (movie) => {
   const item = createElement({
     tag: 'div',
@@ -131,6 +142,7 @@ export const addMovieToList = (movie) => {
     position: 'prepend',
   });
 
+  // Создание изображения фильма
   createElement({
     tag: 'img',
     attrs: {
