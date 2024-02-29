@@ -8,7 +8,7 @@ export const headStyle = `
   body {
     text-align: center;
     margin-bottom: 30px;  
-    font-family: Arial, Helvetica, sans-serif;   
+    font-family: Arial, Helvetica, sans-serif;  
   }
   .container {
     max-width: 1280px;
@@ -16,6 +16,8 @@ export const headStyle = `
     margin: 0 auto;
     padding: 0 20px; 
     box-sizing: border-box;
+   
+
   }
   .movies {
     display: grid;
