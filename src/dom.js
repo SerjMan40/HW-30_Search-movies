@@ -60,7 +60,7 @@ const createMarkup = () => {
   // Создание заголовка <h1> и добавление в контейнер
   createElement({
     tag: 'h1',
-    attrs: { innerHTML: 'Фильмы от Сорока Сани.' },
+    attrs: { innerHTML: 'Застосунок пошуку фільмів' },
     container,
   });
 
@@ -82,7 +82,7 @@ const createMarkup = () => {
     attrs: {
       class: 'search__label-input',
       for: 'search',
-      innerHTML: 'Да выбирай - реще!!!',
+      innerHTML: 'Пошук фільмів',
     },
     container: intputBox,
   });
